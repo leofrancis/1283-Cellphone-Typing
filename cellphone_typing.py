@@ -1,8 +1,8 @@
 import numpy as np
 
-x_max = 80 #x_max length of the words Matrix
 y_letter = 27 # a-z (0-25) + # (26) = 27
 n_max = 100000 # max number of words
+x_max = 80 * n_max #x_max length of the words Matrix
 param = -1 # param of to set all values as empty
 
 class Process (object):
