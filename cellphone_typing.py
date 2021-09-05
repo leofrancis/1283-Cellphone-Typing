@@ -1,19 +1,20 @@
 import numpy as np
 
-MAX = 80 #MAX length of the words Matrix
+x_max = 80 #x_max length of the words Matrix
+y_letter = 27 # a-z (0-25) + # (26) = 27
 n_max = 100000 # max number of words
 param = -1 # param of to set all values as empty
 
 class Process (object):
     def __init__(self): # init function of the process, executed once
         self.stateCount = 0 # Set the stateCount to 0
-        self.matrix = np.zeros( (MAX, 27), dtype=np.int32) # Create matrix of MAX = X and 27 = Y
+        self.matrix = np.zeros( (x_max, y_letter), dtype=np.int32) # Create matrix of x_max = X and 27 = Y
 
     def clear(self): # clear function of the process
         self.stateCount = 1 # Set the stateCount to 1
 
-        for x in range(MAX): # goes from 0 to MAX
-            for y in range(27): # goes from 0 to 27
+        for x in range(x_max): # goes from 0 to x_max
+            for y in range(y_letter): # goes from 0 to 27
                 self.matrix[x][y] = param # Setting the matrix all with the param
 
     def add(self, string): # add Process to the matrix
@@ -40,7 +41,7 @@ class Process (object):
             c = 0 # set the count to 0
 
             if (word > 0): # verify the length of the word without the # (that identifies the end of the word)
-                for j in range(0, 27): # Goes from 0 to 26
+                for j in range(0, y_letter): # Goes from 0 to 26
                     if (self.matrix[state][j] != param): # Verify if the value is diffent from empty (-1)
                         c = c + 1 # if the value of the matrix exists one state add 1 to the counter
 
